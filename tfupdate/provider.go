@@ -140,7 +140,8 @@ func (u *ProviderUpdater) updateTerraformRequiredProvidersBlockAsObject(p *hclwr
 	// Since I've checked for the existence of the version key in advance,
 	// if we reach here, we found the token to be updated.
 	// So we now update bytes of the token in place.
-	tokens[i].Bytes = []byte(u.version)
+	newVersion := oldVersion + u.version
+	tokens[i].Bytes = []byte(newVersion)
 
 	return nil
 }
